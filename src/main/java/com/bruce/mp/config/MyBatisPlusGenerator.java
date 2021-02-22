@@ -59,7 +59,7 @@ public class MyBatisPlusGenerator {
         // 设置开启 swagger
         globalConfig.setSwagger2(true);
         // 是否支持 AR 模式
-        globalConfig.setActiveRecord(true);
+        globalConfig.setActiveRecord(false);
         // 方便自定义 sql
         // 设置是否生成 ResultMap
         globalConfig.setBaseResultMap(true);
@@ -68,12 +68,12 @@ public class MyBatisPlusGenerator {
         // 设置生成路径
         globalConfig.setOutputDir(mpConfig.getOutputDir());
         // 设置生产的类及类名
-        globalConfig.setEntityName("%s");
-        globalConfig.setMapperName("%sMapper");
-        globalConfig.setXmlName("%sMapper");
-        globalConfig.setServiceName("%sService");
-        globalConfig.setServiceImplName("%sServiceImpl");
-        globalConfig.setControllerName("%sController");
+        globalConfig.setEntityName("%s" );
+        globalConfig.setMapperName("%sMapper" );
+        globalConfig.setXmlName("%sMapper" );
+        globalConfig.setServiceName("%sService" );
+        globalConfig.setServiceImplName("%sServiceImpl" );
+        globalConfig.setControllerName("%sController" );
         return globalConfig;
     }
 
@@ -105,7 +105,7 @@ public class MyBatisPlusGenerator {
         strategyConfig.setTablePrefix(mpConfig.getPrefix());
         //需要生成的数据库表
         strategyConfig.setInclude(mpConfig.getIncludes().toArray(new String[0]));
-        strategyConfig.setLogicDeleteFieldName("is_delete");
+        strategyConfig.setLogicDeleteFieldName("is_delete" );
         return strategyConfig;
     }
 
@@ -113,24 +113,24 @@ public class MyBatisPlusGenerator {
         // 5 包配置
         PackageConfig packageConfig = new PackageConfig();
         packageConfig.setParent(mpConfig.getParentPackage());
-        packageConfig.setEntity("model.po");
-        packageConfig.setMapper("mapper");
-        packageConfig.setService("service");
-        packageConfig.setServiceImpl("service.impl");
-        packageConfig.setController("controller");
-        packageConfig.setXml("sqlmap.auto");
+        packageConfig.setEntity("model.po" );
+        packageConfig.setMapper("mapper" );
+        packageConfig.setService("service" );
+        packageConfig.setServiceImpl("service.impl" );
+        packageConfig.setController("controller" );
+        packageConfig.setXml("sqlmap.auto" );
         return packageConfig;
     }
 
     public TemplateConfig initTemplateConfig() {
         // 5 模板设置
         TemplateConfig templateConfig = new TemplateConfig();
-        templateConfig.setEntity("/templates/custom.entity.java");
-        templateConfig.setController("/templates/custom.controller.java");
-        templateConfig.setService("/templates/custom.service.java");
-        templateConfig.setServiceImpl("/templates/custom.serviceImpl.java");
-        templateConfig.setMapper("/templates/custom.mapper.java");
-        templateConfig.setXml("/templates/custom.mapper.xml");
+        templateConfig.setEntity("/templates/custom.entity.java" );
+        templateConfig.setController("/templates/custom.controller.java" );
+        templateConfig.setService("/templates/custom.service.java" );
+        templateConfig.setServiceImpl("/templates/custom.serviceImpl.java" );
+        templateConfig.setMapper("/templates/custom.mapper.java" );
+        templateConfig.setXml("/templates/custom.mapper.xml" );
         return templateConfig;
     }
 
