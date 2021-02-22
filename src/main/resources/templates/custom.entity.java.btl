@@ -35,7 +35,7 @@ import lombok.experimental.Accessors;
 @TableName("${table.name}")
 <% } %>
 <% if(swagger2){ %>
-@ApiModel(value="${entity}对象", description="${table.comment!''}")
+@ApiModel(value = "${entity}对象", description = "${table.comment!''}")
 <% } %>
 <% if(isNotEmpty(superEntityClass)){ %>
 public class ${entity} extends ${superEntityClass}<% if(activeRecord){ %><${entity}><%}%>{
@@ -46,7 +46,7 @@ public class ${entity} implements Serializable {
 <% } %>
 
 <% if(entitySerialVersionUID){ %>
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = -1L;
 <% } %>
 <% /** -----------BEGIN 字段循环遍历----------- **/ %>
 <% for(field in table.fields){ %>
@@ -56,14 +56,12 @@ public class ${entity} implements Serializable {
     }
     %>
 
-    <% if(isNotEmpty(field.comment)){ %>
-        <% if(swagger2){ %>
+    <% if(swagger2){ %>
     @ApiModelProperty(value = "${field.comment}")
         <% }else{ %>
     /**
      * ${field.comment}
      */
-        <% } %>
     <% } %>
     <% if(field.keyFlag){ %>
     <%
