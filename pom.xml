@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.bruce</groupId>
+    <groupId>com.unicom</groupId>
     <artifactId>mybatis-plus-maven-plugin</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>maven-plugin</packaging>
@@ -12,6 +12,22 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <distributionManagement>
+        <!--正式版本  正式版本version  不能带SNAPSHOT -->
+        <!-- nexus服务器中用户名：在settings.xml中<server>的id-->
+        <repository>
+            <id>repository—id</id>
+            <name>repository-name</name>
+            <url>repository-url</url>
+        </repository>
+        <!--快照-->
+        <snapshotRepository>
+            <id>snapshotRepository-id</id>
+            <name>snapshotRepository-name</name>
+            <url>snapshotRepository-url</url>
+        </snapshotRepository>
+    </distributionManagement>
 
     <dependencies>
         <dependency>
@@ -93,6 +109,14 @@
                 </configuration>
                 <executions>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.unicom</groupId>
+                <artifactId>mybatis-plus-maven-plugin</artifactId>
+                <version>1.0-SNAPSHOT</version>
+                <configuration>
+                    <configurationFile>src/main/resources/mp-generator-config.yml</configurationFile>
+                </configuration>
             </plugin>
         </plugins>
     </build>

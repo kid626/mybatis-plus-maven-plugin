@@ -1,3 +1,9 @@
+### 安装
+
+    安装到本地:  mvn install
+    也可以安装到自己的私服 mvn deploy
+
+
 ### 使用方式
 
     <build>
@@ -16,17 +22,19 @@
 ### 配置文件
         src/main/resources/mp-generator-config.yml
 ```
-   author: Bruce
-   dbType: mysql
-   dbUrl: "jdbc:mysql://localhost:3306/mybatis_plus?characterEncoding=utf8&serverTimezone=GMT%2B8"
-   dbDriverName: "com.mysql.cj.jdbc.Driver"
-   dbUsername: root
-   dbPassword: root
-   
-   parentPackage: com.bruce.mp
-   projectName: mp-test
-   #prefix: demo
-   includes: ["demo_mybatis_test"]
-   
-   #outputDir:
-   usevm: true```
+    author: Bruce
+    dbType: mysql
+    dbUrl: "jdbc:mysql://localhost:3306/mybatis_plus?characterEncoding=utf8&serverTimezone=GMT%2B8"
+    dbDriverName: "com.mysql.cj.jdbc.Driver"
+    dbUsername: root
+    dbPassword: root
+    
+    parentPackage: com.bruce.mp
+    projectName: mp-test
+    #prefix: demo
+    includes: ["demo_mybatis_test"]
+    
+    #outputDir:
+    #usebtl: true
+    #usevm: true
+    useftl: true
