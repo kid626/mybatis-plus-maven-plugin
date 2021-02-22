@@ -17,7 +17,7 @@ import lombok.experimental.Accessors;
 
 /**
  * @Copyright Copyright © ${date.substring(0,4)} ${author} . All rights reserved.
- * @Desc ${table.comment} 实体类
+ * @Desc ${table.comment}实体类
  * @ProjectName ${cfg.project_name}
  * @Date ${date}
  * @Author ${author}

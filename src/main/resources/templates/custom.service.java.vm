@@ -5,7 +5,7 @@ import ${superServiceClassPackage};
 
 /**
  * @Copyright Copyright © ${date.substring(0,4)} ${author} . All rights reserved.
- * @Desc ${table.comment} service 层
+ * @Desc ${table.comment}service 层
  * @ProjectName ${cfg.project_name}
  * @Date ${date}
  * @Author ${author}
