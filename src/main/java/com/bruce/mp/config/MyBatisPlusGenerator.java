@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.generator.InjectionConfig;
 import com.baomidou.mybatisplus.generator.config.*;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
+import org.springframework.util.CollectionUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -68,12 +69,12 @@ public class MyBatisPlusGenerator {
         // 设置生成路径
         globalConfig.setOutputDir(mpConfig.getOutputDir());
         // 设置生产的类及类名
-        globalConfig.setEntityName("%s" );
-        globalConfig.setMapperName("%sMapper" );
-        globalConfig.setXmlName("%sMapper" );
-        globalConfig.setServiceName("%sService" );
-        globalConfig.setServiceImplName("%sServiceImpl" );
-        globalConfig.setControllerName("%sController" );
+        globalConfig.setEntityName("%s");
+        globalConfig.setMapperName("%sMapper");
+        globalConfig.setXmlName("%sMapper");
+        globalConfig.setServiceName("%sService");
+        globalConfig.setServiceImplName("%sServiceImpl");
+        globalConfig.setControllerName("%sController");
         return globalConfig;
     }
 
@@ -103,9 +104,15 @@ public class MyBatisPlusGenerator {
         strategyConfig.setNaming(NamingStrategy.underline_to_camel);
         // 设置表名前缀
         strategyConfig.setTablePrefix(mpConfig.getPrefix());
-        //需要生成的数据库表
-        strategyConfig.setInclude(mpConfig.getIncludes().toArray(new String[0]));
-        strategyConfig.setLogicDeleteFieldName("is_delete" );
+        if (!CollectionUtils.isEmpty(mpConfig.getIncludes())) {
+            // 需要生成的数据库表
+            strategyConfig.setInclude(mpConfig.getIncludes().toArray(new String[0]));
+        }
+        if (!CollectionUtils.isEmpty(mpConfig.getExcludes())) {
+            // 需要排除的数据库表
+            strategyConfig.setInclude(mpConfig.getExcludes ().toArray(new String[0]));
+        }
+        strategyConfig.setLogicDeleteFieldName("is_delete");
         return strategyConfig;
     }
 
@@ -113,24 +120,24 @@ public class MyBatisPlusGenerator {
         // 5 包配置
         PackageConfig packageConfig = new PackageConfig();
         packageConfig.setParent(mpConfig.getParentPackage());
-        packageConfig.setEntity("model.po" );
-        packageConfig.setMapper("mapper" );
-        packageConfig.setService("service" );
-        packageConfig.setServiceImpl("service.impl" );
-        packageConfig.setController("controller" );
-        packageConfig.setXml("sqlmap.auto" );
+        packageConfig.setEntity("model.po");
+        packageConfig.setMapper("mapper");
+        packageConfig.setService("service");
+        packageConfig.setServiceImpl("service.impl");
+        packageConfig.setController("controller");
+        packageConfig.setXml("sqlmap.auto");
         return packageConfig;
     }
 
     public TemplateConfig initTemplateConfig() {
         // 5 模板设置
         TemplateConfig templateConfig = new TemplateConfig();
-        templateConfig.setEntity("/templates/custom.entity.java" );
-        templateConfig.setController("/templates/custom.controller.java" );
-        templateConfig.setService("/templates/custom.service.java" );
-        templateConfig.setServiceImpl("/templates/custom.serviceImpl.java" );
-        templateConfig.setMapper("/templates/custom.mapper.java" );
-        templateConfig.setXml("/templates/custom.mapper.xml" );
+        templateConfig.setEntity("/templates/custom.entity.java");
+        templateConfig.setController("/templates/custom.controller.java");
+        templateConfig.setService("/templates/custom.service.java");
+        templateConfig.setServiceImpl("/templates/custom.serviceImpl.java");
+        templateConfig.setMapper("/templates/custom.mapper.java");
+        templateConfig.setXml("/templates/custom.mapper.xml");
         return templateConfig;
     }
 

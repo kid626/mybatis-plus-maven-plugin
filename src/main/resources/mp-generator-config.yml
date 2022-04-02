@@ -8,7 +8,8 @@ dbPassword: root
 parentPackage: com.bruce.mp
 projectName: mp-test
 #prefix: demo
-includes: ["demo_mybatis_test"]
+includes: [ "demo_mybatis_test" ]
+excludes: [ ]
 
 #outputDir:
 #usebtl: true

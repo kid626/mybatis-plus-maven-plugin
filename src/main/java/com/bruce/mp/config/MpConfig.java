@@ -3,7 +3,6 @@ package com.bruce.mp.config;
 import com.baomidou.mybatisplus.generator.config.*;
 import lombok.Data;
 
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -37,7 +36,12 @@ public class MpConfig {
     /**
      * 包含的表名
      */
-    private List<String> includes = Arrays.asList("demo_mybatis_test");
+    private List<String> includes;
+
+    /**
+     * 需要排除的表名
+     */
+    private List<String> excludes;
 
     /**
      * 输出路径
