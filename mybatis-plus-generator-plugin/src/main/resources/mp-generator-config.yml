@@ -1,0 +1,20 @@
+author: Bruce
+dbType: mysql
+dbUrl: "jdbc:mysql://localhost:3306/mybatis_plus?characterEncoding=utf8&serverTimezone=GMT%2B8"
+dbDriverName: "com.mysql.cj.jdbc.Driver"
+dbUsername: root
+dbPassword: root
+
+parentPackage: com.bruce.mp.demo
+projectName: mp-demo
+moduleName: mybatis-plus-generator-plugin
+version: v1
+#prefix: demo
+includes: [ "demo_user" ]
+excludes: [ ]
+
+#outputDir:
+#usebtl: true
+usevm: true
+#useftl: true
+custom: true
